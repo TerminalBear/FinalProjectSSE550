@@ -18,3 +18,6 @@ Current: <br>
 &nbsp;&nbsp;CalculatorGUI provides an option to select infix, prefix, or postfix. Perform basic arithmetic and outputs to GUI. <br>
 To Do: <br>
 &nbsp;&nbsp;Run PrefixCalculatorGUI/PostfixCalculatorGUI when prefix or postfix is selected in CalculatorGUI. <br>
+&nbsp;&nbsp;Add extensive exception handling for input and log capabilities<br>
+&nbsp;&nbsp;Clean up GUI (make it look better)<br>
+&nbsp;&nbsp;Add unit conversion, advanced computation ability (i.e. exponents), graphing capabilities, etc. [optional] <br>
