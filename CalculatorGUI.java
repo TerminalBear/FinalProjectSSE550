@@ -8,8 +8,8 @@ public class CalculatorGUI {
     private JTextField textField;
     private String operator = "";
     private double firstOperand = 0.0;
-    private String mode; // no default mode
-
+    private String mode; 
+    
     public CalculatorGUI() {
         // Prompt the user to select the mode
         mode = (String) JOptionPane.showInputDialog(
@@ -30,7 +30,7 @@ public class CalculatorGUI {
         frame = new JFrame("Calculator");
         textField = new JTextField();
 
-        // Create buttons
+        // Buttons
         JButton[] numberButtons = new JButton[10];
         for (int i = 0; i < 10; i++) {
             numberButtons[i] = new JButton(String.valueOf(i));
@@ -43,7 +43,7 @@ public class CalculatorGUI {
         JButton equalButton = new JButton("=");
         JButton clearButton = new JButton("Clear");
 
-        // Create a panel and add the components
+        // Panel/components
         JPanel panel = new JPanel();
         panel.setLayout(new GridLayout(5, 4));
 
@@ -57,7 +57,6 @@ public class CalculatorGUI {
         panel.add(equalButton);
         panel.add(clearButton);
 
-        // Add action listeners to the buttons
         for (JButton button : numberButtons) {
             button.addActionListener(new ActionListener() {
                 @Override
@@ -137,7 +136,6 @@ public class CalculatorGUI {
             }
         });
 
-        // Set up the frame
         frame.add(textField, BorderLayout.NORTH);
         frame.add(panel, BorderLayout.CENTER);
         frame.setSize(400, 400);
