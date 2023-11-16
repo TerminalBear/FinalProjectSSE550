@@ -22,8 +22,7 @@ public class CalculatorGUI {
                 "Infix");
 
         if (mode == null || !mode.equals("Infix")) {
-            // If the user cancels the dialog or selects a mode other than "Infix",
-            // exit the program
+            // If the user cancels the dialog or selects a mode other than "Infix", exit the program
             System.exit(0);
         }
 
