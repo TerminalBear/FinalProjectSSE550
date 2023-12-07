@@ -66,15 +66,17 @@ public class CalculatorGUI {
         	buttonColor="Green";
         }
     
-        if (mode == null || !mode.equals("Infix")) {
-            // If the user cancels the dialog or selects a mode other than "Infix", exit the program
+        if (mode == null ) {
+          
             System.exit(0);
             
         }
-
+        
+        else if (mode =="Infix" )
+        {
         frame = new JFrame("Calculator");
         textField = new JTextField();
-
+        {
         // Buttons
         JButton[] numberButtons = new JButton[10];
         for (int i = 0; i < 10; i++) {
@@ -243,8 +245,17 @@ color="Red";
         frame.add(panel, BorderLayout.CENTER);
         frame.setSize(400, 400);
         frame.setVisible(true);
+    }}
+        else if (mode.equals("Postfix"))
+        {
+        	 
+        	 new PostfixCalculatorGUI();
+        }
+        else if (mode.equals("Prefix"))
+         {
+        	 new PrefixCalculatorGUI();
+         }
     }
-
     public static void main(String[] args) {
         new CalculatorGUI();
     }
