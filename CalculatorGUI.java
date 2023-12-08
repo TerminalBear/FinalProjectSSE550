@@ -41,31 +41,7 @@ public class CalculatorGUI {
                 null,
                 new String[] { "Infix", "Prefix", "Postfix" },
                 "Infix");
-        // Prompt the user to select a color for the calculator 
-        color = (String) JOptionPane.showInputDialog(
-                null,
-                "Select color of calculator:",
-                "Calculator Mode",
-                JOptionPane.QUESTION_MESSAGE,
-                null,
-                new String[] { "Blue", "Red", "Orange" },
         
-        		"Green");
-        //finding the color the user selected 
-        String buttonColor=null ;
-        if(color.equals("Blue"))
-        {
-        	buttonColor = "Cyan";
-        }
-        else if(color.equals("Red"))
-        {
-        	buttonColor = "Red";
-        }
-        else if(color.equals("Green"))
-        {
-        	buttonColor="Green";
-        }
-    
         if (mode == null ) {
           
             System.exit(0);
@@ -74,6 +50,31 @@ public class CalculatorGUI {
         
         else if (mode =="Infix" )
         {
+        	// Prompt the user to select a color for the calculator 
+             color = (String) JOptionPane.showInputDialog(
+                     null,
+                     "Select color of calculator:",
+                     "Calculator Mode",
+                     JOptionPane.QUESTION_MESSAGE,
+                     null,
+                     new String[] { "Blue", "Red", "Orange" },
+             
+             		"Green");
+             //finding the color the user selected 
+             String buttonColor=null ;
+             if(color.equals("Blue"))
+             {
+             	buttonColor = "Cyan";
+             }
+             else if(color.equals("Red"))
+             {
+             	buttonColor = "Red";
+             }
+             else if(color.equals("Orange"))
+             {
+             	buttonColor="Orange";
+             }
+         
         frame = new JFrame("Calculator");
         textField = new JTextField();
         {
