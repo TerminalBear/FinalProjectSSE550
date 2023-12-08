@@ -18,6 +18,10 @@ public class PreOrderCalculator {
                 return left - right;
             case '*':
                 return left * right;
+            case '^':
+            	Math.pow(left, right);
+            case '~' :
+            	Math.pow(left, 1/right);
             case '/':
                 if (right == 0) {
                     throw new IllegalArgumentException("Cannot divide by zero");
