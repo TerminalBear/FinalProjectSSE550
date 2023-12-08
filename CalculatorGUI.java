@@ -10,8 +10,20 @@ public class CalculatorGUI {
     private double firstOperand = 0.0;
     private String mode; 
     private String color;
-    // creating the exponential method to be passed
+    // creating this to handle exception if two operators are pressed
+    
+    private boolean operatorPressed = false;
+    private void showErrorAndClear(String errorMessage) {
+	    JOptionPane.showMessageDialog(frame, errorMessage, "Error", JOptionPane.ERROR_MESSAGE);
+	    clearAll();
+	}
 
+	private void clearAll() {
+	    textField.setText("");
+	    operatorPressed = false;
+	}
+    
+    // creating the exponential method to be passed
     public static double exponential(double base, double exponent) {
         return Math.pow(base, exponent);
     }
@@ -130,72 +142,123 @@ public class CalculatorGUI {
                 }
             });
         }
+      
 final  String original= buttonColor;
-color="Red";
+color="White";
         addButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                operator = "+";
-                firstOperand = Double.parseDouble(textField.getText());
-                textField.setText("");
-                addButton.setBackground(getColor(color));
+            	 if (!operatorPressed) {
+                     operator = "+";
+                     firstOperand = Double.parseDouble(textField.getText());
+                     textField.setText("");
+                     addButton.setBackground(getColor(color));
+                     operatorPressed = true;
+                 } else {
+                     showErrorAndClear("Error: You pressed two operators consecutively. Start your expression over");
+
+                 }
             }
         });
 
         subtractButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                if (!operatorPressed) {
                 operator = "-";
                 firstOperand = Double.parseDouble(textField.getText());
                 textField.setText("");
                 subtractButton.setBackground(getColor(color));
+                operatorPressed = true;
+                }
+                
+                else {
+                	 showErrorAndClear("Error: You pressed two operators consecutively. Start your expression over");
+
+                }
             }
         });
 
         multiplyButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                operator = "*";
+            	   if (!operatorPressed) {
+            	operator = "*";
                 firstOperand = Double.parseDouble(textField.getText());
                 textField.setText("");
                 multiplyButton.setBackground(getColor(color));
+                operatorPressed = true;
+                }
+            	   else {
+            		   showErrorAndClear("Error: You pressed two operators consecutively. Start your expression over");
+
+            	   }
             }
         });
 
         divideButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                operator = "/";
+            	if (!operatorPressed) {
+            		operator = "/";
+            	
                 firstOperand = Double.parseDouble(textField.getText());
                 textField.setText("");
                 divideButton.setBackground(getColor(color));
+                operatorPressed = true;
+                }
+            	else {
+            		 showErrorAndClear("Error: You pressed two operators consecutively. Start your expression over");
+
+            	}
             }
             
         });
         exponetialButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                operator = "^";
+               if (!operatorPressed)
+            	   {operator = "^";
                 firstOperand = Double.parseDouble(textField.getText());
                 textField.setText("");
                 exponetialButton.setBackground(getColor(color));
+                operatorPressed = true;
+                }
+               else {
+            	   showErrorAndClear("Error: You pressed two operators consecutively. Start your expression over");
+
+           	
+               }
             }
         });
         rootButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                operator = "^1/x";
+               if(!operatorPressed)
+            	   {operator = "^1/x";
                 firstOperand = Double.parseDouble(textField.getText());
                 textField.setText("");
                 rootButton.setBackground(getColor(color));
+                operatorPressed = true;
+                }
+               else
+               {
+            	   showErrorAndClear("Error: You pressed two operators consecutively. Start your expression over");
+
+               }
             }
         });
 
 
         equalButton.addActionListener(new ActionListener() {
-            @Override
+        	
+        
+        	@Override
+  
             public void actionPerformed(ActionEvent e) {
                 double secondOperand = Double.parseDouble(textField.getText());
+            	operatorPressed = false;
+            	
                 switch (operator) {
                     case "+":
                         textField.setText(String.valueOf(firstOperand + secondOperand));
@@ -226,9 +289,16 @@ color="Red";
                         exponetialButton.setBackground(getColor(original));
                         break;
                     case "^1/x":
-                        textField.setText(String.valueOf( Root(firstOperand, secondOperand)));
+                    	 if (secondOperand != 0) {
+                    	textField.setText(String.valueOf( Root(firstOperand, secondOperand)));
                        rootButton.setBackground(getColor(original));
                         break;
+                    	 }
+                    	 else 
+                    	 {
+                    		  textField.setText("Error: Division by zero please clear screen and try again"); 
+                    		  rootButton.setBackground(getColor(original));
+                    	 }
                 }
             }
         });
