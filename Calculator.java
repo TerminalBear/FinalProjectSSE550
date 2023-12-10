@@ -1,4 +1,3 @@
-
 public class Calculator {
     public double calculate(Node node) {
         if (node == null) {
