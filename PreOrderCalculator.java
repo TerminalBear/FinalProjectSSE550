@@ -21,7 +21,10 @@ public class PreOrderCalculator {
             case '^':
             	Math.pow(left, right);
             case '~' :
-            	Math.pow(left, 1/right);
+            	  if (right == 0) {
+                      throw new IllegalArgumentException("Cannot root a number by zero");
+                  }
+            	  Math.pow(left, 1/right);
             case '/':
                 if (right == 0) {
                     throw new IllegalArgumentException("Cannot divide by zero");

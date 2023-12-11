@@ -30,7 +30,11 @@ public class PostOrderCalculator {
                 case '^':
                return Math.pow(left, right);
                 case '~' :
-                	return Math.pow(left, 1/right);
+                	 if (right == 0) {
+                         throw new IllegalArgumentException(" cant't root a number by 0");
+                     }
+                	 return Math.pow(left, 1/right);
+                
         }
     }
     public double calculatePostOrder(String[] tokens) {
@@ -65,7 +69,11 @@ public class PostOrderCalculator {
                 
                     break;
                     case "~":
-                        stack.push(Math.pow(leftOperand,1/rightOperand));
+                    	   if (rightOperand == 0) {
+                               throw new IllegalArgumentException("cant do root of zero");
+                           }
+                    	   stack.push(Math.pow(leftOperand,1/rightOperand));
+                        
                     
                         break;
 
