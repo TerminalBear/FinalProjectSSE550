@@ -21,7 +21,8 @@ public class PrefixCalculatorGUI {
         textArea.setText("Welcome to the Prefix Calculator!\n" +
                 "Please enter your prefix expressions in the text field below.\n" +
                 "For example, to add 1 and 2, type: '+ 1 2'\n" +
-                "Then press Enter to calculate.\n funcstions include +, - , / , * , ^ , ~ (Root) \n \n" );
+                "Then press Enter to calculate.\n funcstions include +, - , / , * , ^ , ~ (Root) \n S (Sin in radians), C (Cos in radians) \n\n"
+                   + "For sin or cosine just type any number after the base and select either operation\n" );
         textArea.setEditable(false);
         JScrollPane scrollPane = new JScrollPane(textArea);
         scrollPane.setPreferredSize(new Dimension(400, 300));
@@ -81,7 +82,7 @@ public class PrefixCalculatorGUI {
     }
 
     private boolean isOperator(String token) {
-        return "+-*/^~".contains(token);
+        return "+-*/^~SC".contains(token);
     }
 
     public static void main(String[] args) {
