@@ -105,6 +105,8 @@ public class CalculatorGUI {
         JButton clearButton = new JButton("Clear");
         JButton exponetialButton = new JButton("^");
         JButton rootButton = new JButton("^(1/x)");
+        JButton SinButton= new JButton("Sin");
+        JButton CosButton= new JButton("Cos");
         // Changing button colors
         addButton.setBackground(getColor(buttonColor));
         subtractButton.setBackground(getColor(buttonColor));
@@ -114,6 +116,8 @@ public class CalculatorGUI {
         clearButton.setBackground(getColor(buttonColor));
         exponetialButton.setBackground(getColor(buttonColor));
         rootButton.setBackground(getColor(buttonColor));
+        SinButton.setBackground(getColor(buttonColor));
+        CosButton.setBackground(getColor(buttonColor));
         
         
         // Panel/components
@@ -131,6 +135,8 @@ public class CalculatorGUI {
         panel.add(clearButton);
         panel.add(exponetialButton);
         panel.add(rootButton);
+        panel.add(SinButton);
+        panel.add(CosButton);
 
         for (JButton button : numberButtons) {
             button.addActionListener(new ActionListener() {
@@ -248,7 +254,40 @@ color="White";
                }
             }
         });
+        SinButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+               if(!operatorPressed)
+            	   {operator = "Sin";
+                firstOperand = Double.parseDouble(textField.getText());
+                textField.setText("");
+                SinButton.setBackground(getColor(color));
+                operatorPressed = true;
+                }
+               else
+               {
+            	   showErrorAndClear("Error: You pressed two operators consecutively. Start your expression over");
 
+               }
+            }
+        });
+        CosButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+               if(!operatorPressed)
+            	   {operator = "Cos";
+                firstOperand = Double.parseDouble(textField.getText());
+                textField.setText("");
+                CosButton.setBackground(getColor(color));
+                operatorPressed = true;
+                }
+               else
+               {
+            	   showErrorAndClear("Error: You pressed two operators consecutively. Start your expression over");
+
+               }
+            }
+        });
 
         equalButton.addActionListener(new ActionListener() {
         	
@@ -284,6 +323,28 @@ color="White";
                         }
                   
                         break;
+                 case "Sin":
+                	 double angleInDegrees = firstOperand;
+
+                   
+                     double angleInRadians = Math.toRadians(angleInDegrees);
+
+                   
+                   
+                        textField.setText(String.valueOf( Math.sin(angleInRadians)));
+                        SinButton.setBackground(getColor(original));
+                        break;
+                 case "Cos":
+                	 double angleInDegrees2 = firstOperand;
+
+                   
+                     double angleInRadians2 = Math.toRadians(angleInDegrees2);
+
+                   
+                   
+                        textField.setText(String.valueOf( Math.cos(angleInRadians2)));
+                        CosButton.setBackground(getColor(original));
+                        break;
                     case "^":
                         textField.setText(String.valueOf( exponential(firstOperand, secondOperand)));
                         exponetialButton.setBackground(getColor(original));
@@ -299,6 +360,7 @@ color="White";
                     		  textField.setText("Error: Division by zero please clear screen and try again"); 
                     		  rootButton.setBackground(getColor(original));
                     	 }
+                    
                 }
             }
         });

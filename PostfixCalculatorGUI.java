@@ -22,7 +22,8 @@ public class PostfixCalculatorGUI {
         textArea.setText("Welcome to the Postfix Calculator!\n" +
                 "Please enter your postfix expressions in the text field below.\n" +
                 "For example, to add 1 and 2, type: '1 2 +'\n" +
-                "Then press Enter to calculate.\n funcstions include +, - , / , * , ^ , ~ (Root)\n \n");
+                "Then press Enter to calculate.\n funcstions include +, - , / , * , ^ , ~ (Root), S (Sin in radians), C (Cos in radians)\n"
+                + "For sin or cosine just type any number after the base and select either operation \n");
         textArea.setEditable(false);
         JScrollPane scrollPane = new JScrollPane(textArea);
         scrollPane.setPreferredSize(new Dimension(400, 300));

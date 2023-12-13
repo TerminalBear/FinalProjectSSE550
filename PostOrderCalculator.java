@@ -34,6 +34,11 @@ public class PostOrderCalculator {
                          throw new IllegalArgumentException(" cant't root a number by 0");
                      }
                 	 return Math.pow(left, 1/right);
+                case 'S':
+                    return Math.sin(left);
+                case 'C' :
+                     	 
+                     	 return Math.cos(left);
                 
         }
     }
@@ -41,8 +46,10 @@ public class PostOrderCalculator {
         Stack<Double> stack = new Stack<>();
 
         for (String token : tokens) {
-            if ("+-*/^~".contains(token)) {
+            if ("+-*/^~SC".contains(token)) {
                 if (stack.size() < 2) {
+                	
+                	
                     throw new IllegalArgumentException("Invalid postfix expression");
                 }
          
@@ -76,7 +83,12 @@ public class PostOrderCalculator {
                         
                     
                         break;
-
+                    case "S":
+                    	stack.push(Math.sin(leftOperand));
+                    	break;
+                    case"C":
+                    	stack.push(Math.cos(leftOperand));
+                    	break;
 
                 }
             } else {
