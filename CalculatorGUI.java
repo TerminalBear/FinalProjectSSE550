@@ -390,11 +390,11 @@ color="White";
          }
         else if (mode.equals("Conversion App"))
         {
-        	 JFrame frame = new JFrame("Conversion App");
-             frame.setContentPane(new ConversionApp().panel1);
-             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-             frame.pack();
-             frame.setVisible(true);
+        	JFrame frame = new JFrame("Conversion App");
+            frame.setContentPane(new ConversionApp().panel1);
+            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            frame.pack();
+            frame.setVisible(true);
         }
     }
     public static void main(String[] args) {
