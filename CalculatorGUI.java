@@ -51,7 +51,7 @@ public class CalculatorGUI {
                 "Calculator Mode",
                 JOptionPane.QUESTION_MESSAGE,
                 null,
-                new String[] { "Infix", "Prefix", "Postfix" },
+                new String[] { "Infix", "Prefix", "Postfix" , "Conversion App"},
                 "Infix");
         
         if (mode == null ) {
@@ -388,6 +388,14 @@ color="White";
          {
         	 new PrefixCalculatorGUI();
          }
+        else if (mode.equals("Conversion App"))
+        {
+        	 JFrame frame = new JFrame("Conversion App");
+             frame.setContentPane(new ConversionApp().panel1);
+             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+             frame.pack();
+             frame.setVisible(true);
+        }
     }
     public static void main(String[] args) {
         new CalculatorGUI();
