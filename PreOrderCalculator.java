@@ -30,6 +30,13 @@ public class PreOrderCalculator {
                     throw new IllegalArgumentException("Cannot divide by zero");
                 }
                 return left / right;
+           
+            
+            case 'S':
+               return Math.sin(left);
+            case 'C' :
+                 	 
+                 	 return Math.cos(left);
             default:
                 throw new IllegalArgumentException("Invalid operator: " + node.operator);
         }

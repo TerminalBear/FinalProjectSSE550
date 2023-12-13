@@ -17,6 +17,7 @@ public class Calculator {
                 return calculate(node.left) * calculate(node.right);
             case '^' :
             	return Math.pow(calculate(node.left),calculate(node.right));
+            
             case '/':
      
                 if (node.right.operand == 0) {

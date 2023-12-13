@@ -174,6 +174,6 @@ public class Main {
     }
 
     private static boolean isOperator(String token) {
-        return "+-*/^~".contains(token);
+        return "+-*/^~SC".contains(token);
     }
 }
